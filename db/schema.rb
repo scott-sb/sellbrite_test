@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726225955) do
+ActiveRecord::Schema.define(version: 20170727032630) do
+
+  create_table "custom_fields", force: true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_custom_fields", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "custom_field_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_custom_fields", ["custom_field_id"], name: "index_product_custom_fields_on_custom_field_id"
+  add_index "product_custom_fields", ["product_id"], name: "index_product_custom_fields_on_product_id"
 
   create_table "products", force: true do |t|
     t.string   "sku"

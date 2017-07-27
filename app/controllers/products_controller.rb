@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @custom_fields = @product.custom_fields
   end
 
   # GET /products/new
@@ -19,6 +20,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @custom_field = @product.custom_fields.new
   end
 
   # POST /products
