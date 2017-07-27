@@ -1,6 +1,8 @@
 <h1>Editing product</h1>
 
 <%= render 'form' %>
+<%= render 'new_manual_custom_field', custom_field: @custom_field, product: @product %>
+<%= render 'new_select_custom_field', custom_field: @custom_field, product: @product %>
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

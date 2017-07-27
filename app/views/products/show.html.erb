@@ -22,11 +22,14 @@
 
 <p>
   <strong>Custom Fields:</strong>
-  <br />
+  <br>
   <% @custom_fields.each do |cf| %>
-    <strong>Key:</strong> <%= cf.key %>
-    <strong>Value:</strong> <%= cf.value %>
-    <br />
+    <%= form_for cf, url: product_custom_field_path(@product, cf) do |field| %>
+      <strong>Key:</strong> <%= cf.key %>
+      <strong>Value:</strong> <%= field.text_field :value %>
+      <%= link_to("Delete", product_custom_field_path(@product, cf), method: :delete) %>
+      <%= field.submit 'Update' %>
+    <% end %>
   <% end %>
 </p>
 

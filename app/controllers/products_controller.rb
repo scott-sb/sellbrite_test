@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    @custom_field = @product.custom_fields.new
+    @custom_field = CustomField.new
   end
 
   # POST /products

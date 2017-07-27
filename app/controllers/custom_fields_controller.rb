@@ -6,7 +6,7 @@ class CustomFieldsController < ApplicationController
     @product.create_custom_field(custom_field_params)
     redirect_to @product, notice: 'Custom field successfully created!'
   rescue ActiveRecord::RecordInvalid
-    redirect_to edit_product_path(@product), error: 'Could not create custom field'
+    redirect_to edit_product_path(@product), flash: { error: 'Could not create custom field' }
   end
 
   def update
@@ -22,7 +22,7 @@ class CustomFieldsController < ApplicationController
   def destroy
     @custom_field.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Custom field was successfully destroyed.' }
+      format.html { redirect_to @product, notice: 'Custom field was successfully destroyed.' }
     end
   end
 
