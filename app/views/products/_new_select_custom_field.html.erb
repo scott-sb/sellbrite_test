@@ -1,11 +1,13 @@
+<h3>Add Custom Field Using Existing Keys</h3>
+
 <%= form_for custom_field, url: product_custom_fields_path(product) do |f| %>
-  <div class="field">
-    <%= f.label :key %><br>
-    <%= f.select :key, CustomField.uniq.pluck(:key) %>
+  <div class="form-group">
+    <%= f.label :key, class: "control-label" %><br>
+    <%= f.select :key, CustomField.uniq.pluck(:key), {}, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
+  <div class="form-group">
+    <%= f.label :value, class: "control-label" %><br>
+    <%= f.text_field :value, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>
