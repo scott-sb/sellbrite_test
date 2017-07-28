@@ -4,6 +4,8 @@ Clone the test repository here: https://github.com/Sellbrite/sellbrite_test
 
 Run `rake db:migrate`
 
+Run `rake db:seed` to generate some seed products.
+
 There is just one model created using Rails scaffold generator.  The Product model contains just a few fields: sku, name, description, price.
 
 Start your server `rails server` and hit `http://localhost:3000/products` and add a few dummy products.
